@@ -1,0 +1,43 @@
+// Змінні та міксини проєкту. Підключається через @use "variables" as v;
+
+// Кольори
+$color-accent: #5f6b63;
+$color-accent-hover: #48534c;
+$color-text: #23262f;
+$color-background: #fff;
+$color-border: rgb(16 38 55 / 10%);
+$color-light: #f0f2f0;
+
+// Розміри
+$container-width: 80.5rem;
+$radius-card: 1.25rem;
+$radius-button: 0.625rem;
+$section-space: clamp(3.125rem, 6vw, 6rem);
+
+// Брейкпоінти
+$bp-mobile: 48rem;
+$bp-wide: 75rem;
+
+// Міксини для медіазапитів
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: $bp-wide) {
+    @content;
+  }
+}
+
+// Міксин рамки навколо зображення (картки товарів, десктоп і мобільна версії)
+@mixin framed-image($ratio-w, $ratio-h, $padding, $radius) {
+  width: 100%;
+  aspect-ratio: #{$ratio-w} / #{$ratio-h};
+  object-fit: contain;
+  padding: $padding;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  background: $color-background;
+}

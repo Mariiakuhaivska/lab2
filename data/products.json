@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Modern Wardrobe",
+    "image": "img/wardrobe.jpg",
+    "alt": "Freestanding wardrobe",
+    "price": 12500,
+    "oldPrice": 13900
+  },
+  {
+    "id": 2,
+    "title": "Open Shelving Unit",
+    "image": "img/shelf.jpg",
+    "alt": "Open shelving unit",
+    "price": 4800,
+    "oldPrice": null
+  },
+  {
+    "id": 3,
+    "title": "Compact Dresser",
+    "image": "img/dresser.jpg",
+    "alt": "Chest of drawers",
+    "price": 6200,
+    "oldPrice": null
+  },
+  {
+    "id": 4,
+    "title": "Storage Cabinet",
+    "image": "img/cabinet.jpg",
+    "alt": "Storage cabinet with doors",
+    "price": 5900,
+    "oldPrice": null
+  },
+  {
+    "id": 5,
+    "title": "Wall Shelf",
+    "image": "img/wall-shelf.jpg",
+    "alt": "Wall-mounted shelf",
+    "price": 1800,
+    "oldPrice": null
+  },
+  {
+    "id": 6,
+    "title": "Modular Storage System",
+    "image": "img/storage-system.jpg",
+    "alt": "Modular storage system",
+    "price": 9400,
+    "oldPrice": null
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "name": "furnishop-lab2",
+  "version": "1.0.0",
+  "description": "FurniShop: лабораторна робота 2. npm, Sass і генерація карток скриптом Node.js",
+  "private": true,
+  "author": "Кугаївська Марія",
+  "license": "ISC",
+  "scripts": {
+    "scss:build": "sass src/scss/main.scss css/style.css --style=expanded --no-source-map",
+    "scss:watch": "sass --watch src/scss/main.scss:css/style.css --style=expanded --no-source-map",
+    "build:cards": "node scripts/build-cards.js",
+    "build": "npm run build:cards && npm run scss:build"
+  },
+  "devDependencies": {
+    "sass": "^1.105.2"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "type": "commonjs"
+}

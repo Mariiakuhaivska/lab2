@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FurniShop — practical storage furniture for your home.">
+  <title>FurniShop — Storage Furniture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home">FurniShop</a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#benefits">About</a>
+        <a href="#catalog">Features</a>
+        <a href="#contacts">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <dialog class="mobile-menu" id="mobile-menu" aria-labelledby="menu-title">
+    <div class="menu-top">
+      <strong id="menu-title">FurniShop</strong>
+
+      <button class="menu-close" type="button" aria-label="Close menu">
+        ×
+      </button>
+    </div>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#home">Home</a>
+      <a href="#benefits">About</a>
+      <a href="#catalog">Features</a>
+      <a href="#contacts">Contact</a>
+    </nav>
+  </dialog>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">
+            Creative Storage for Modern Living
+          </h1>
+
+          <p>
+            Discover practical furniture that keeps your home
+            organized and gives every item its own place.
+          </p>
+
+          <a class="button" href="#catalog">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlights" aria-label="FurniShop in numbers">
+      <p>
+        <strong>7</strong>
+        <span>Years Experience</span>
+      </p>
+
+      <p>
+        <strong>2</strong>
+        <span>Opened in the Country</span>
+      </p>
+
+      <p>
+        <strong>10k+</strong>
+        <span>Furniture Sold</span>
+      </p>
+
+      <p>
+        <strong>260+</strong>
+        <span>Furniture Variants</span>
+      </p>
+    </section>
+
+    <section class="benefits section" id="benefits" aria-labelledby="benefits-title">
+      <div class="container benefits-inner">
+        <img class="benefits-image" src="img/benefits.jpg" alt="A bright room with organized storage furniture" loading="lazy">
+
+        <div class="benefits-copy">
+          <h2 id="benefits-title">
+            Less Clutter, More Space
+          </h2>
+
+          <p>
+            Choose storage furniture that combines a clean design
+            with useful space for everyday essentials.
+          </p>
+
+          <ul class="benefits-list">
+            <li>
+              <span class="check-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="12" fill="currentColor"/>
+                  <path d="m6.5 12 3.5 3.5 7.5-7.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+
+              <div>
+                <h3>Quality Materials</h3>
+                <p>
+                  Reliable materials and thoughtful details make
+                  our furniture suitable for daily use.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <span class="check-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="12" fill="currentColor"/>
+                  <path d="m6.5 12 3.5 3.5 7.5-7.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+
+              <div>
+                <h3>Smart Organization</h3>
+                <p>
+                  Flexible shelves and convenient compartments
+                  help you use every corner of your home.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="storage-about section" aria-labelledby="storage-title">
+      <div class="container storage-about-inner">
+        <div class="storage-about-copy">
+          <h2 id="storage-title">
+            The Best Storage for Your Home
+          </h2>
+
+          <p>
+            A well-organized home starts with furniture that fits
+            your life. Our wardrobes, shelves and cabinets offer
+            space for clothes, books and everyday essentials while
+            bringing a calm, consistent style to your room.
+          </p>
+        </div>
+
+        <img class="storage-about-image" src="img/storage-interior.jpg" alt="Storage cabinets and shelves in a modern interior" loading="lazy">
+      </div>
+    </section>
+
+    <section class="catalog section" id="catalog" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="catalog-title">Our Storage Collection</h2>
+
+          <p>
+            Explore practical storage furniture for a comfortable
+            and organized home.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <!-- cards:start -->
+          <article class="product-card">
+            <img src="img/wardrobe.jpg" alt="Freestanding wardrobe" loading="lazy">
+
+            <h3>Modern Wardrobe</h3>
+
+            <p class="product-price">
+              UAH 12,500
+              <del>UAH 13,900</del>
+            </p>
+
+            <a class="product-link" href="#contacts" aria-label="Ask about Modern Wardrobe">
+              Learn More
+            </a>
+          </article>
+
+          <article class="product-card">
+            <img src="img/shelf.jpg" alt="Open shelving unit" loading="lazy">
+
+            <h3>Open Shelving Unit</h3>
+
+            <p class="product-price">
+              UAH 4,800
+            </p>
+
+            <a class="product-link" href="#contacts" aria-label="Ask about Open Shelving Unit">
+              Learn More
+            </a>
+          </article>
+
+          <article class="product-card">
+            <img src="img/dresser.jpg" alt="Chest of drawers" loading="lazy">
+
+            <h3>Compact Dresser</h3>
+
+            <p class="product-price">
+              UAH 6,200
+            </p>
+
+            <a class="product-link" href="#contacts" aria-label="Ask about Compact Dresser">
+              Learn More
+            </a>
+          </article>
+
+          <article class="product-card">
+            <img src="img/cabinet.jpg" alt="Storage cabinet with doors" loading="lazy">
+
+            <h3>Storage Cabinet</h3>
+
+            <p class="product-price">
+              UAH 5,900
+            </p>
+
+            <a class="product-link" href="#contacts" aria-label="Ask about Storage Cabinet">
+              Learn More
+            </a>
+          </article>
+
+          <article class="product-card">
+            <img src="img/wall-shelf.jpg" alt="Wall-mounted shelf" loading="lazy">
+
+            <h3>Wall Shelf</h3>
+
+            <p class="product-price">
+              UAH 1,800
+            </p>
+
+            <a class="product-link" href="#contacts" aria-label="Ask about Wall Shelf">
+              Learn More
+            </a>
+          </article>
+
+          <article class="product-card">
+            <img src="img/storage-system.jpg" alt="Modular storage system" loading="lazy">
+
+            <h3>Modular Storage System</h3>
+
+            <p class="product-price">
+              UAH 9,400
+            </p>
+
+            <a class="product-link" href="#contacts" aria-label="Ask about Modular Storage System">
+              Learn More
+            </a>
+          </article>
+          <!-- cards:end -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#home">FurniShop</a>
+
+          <p>
+            Practical storage furniture for a comfortable
+            and organized home.
+          </p>
+        </div>
+
+        <div>
+          <h2>Our Products</h2>
+
+          <nav class="footer-links" aria-label="Product navigation">
+            <a href="#catalog">Wardrobes</a>
+            <a href="#catalog">Shelves</a>
+            <a href="#catalog">Cabinets</a>
+          </nav>
+        </div>
+
+        <div>
+          <h2>Information</h2>
+
+          <nav class="footer-links" aria-label="Information navigation">
+            <a href="#benefits">About Us</a>
+            <a href="#catalog">Collection</a>
+            <a href="#home">Back to Top</a>
+          </nav>
+        </div>
+
+        <div>
+          <h2>Contact</h2>
+          <address>Uzhhorod, Ukraine</address>
+          <p>Contact details will be added here.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 FurniShop. All rights reserved.</p>
+        <p>Storage furniture collection</p>
+      </div>
+    </div>
+  </footer>
+<script>
+  const menu = document.querySelector("#mobile-menu");
+const menuToggle = document.querySelector(".menu-toggle");
+const menuClose = document.querySelector(".menu-close");
+
+function closeMenu() {
+  menu.close();
+}
+
+menuToggle.addEventListener("click", () => {
+  menu.showModal();
+
+  menuToggle.setAttribute("aria-expanded", "true");
+  document.body.classList.add("menu-open");
+});
+
+menuClose.addEventListener("click", closeMenu);
+
+menu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
+
+menu.addEventListener("click", (event) => {
+  const bounds = menu.getBoundingClientRect();
+
+  const outside =
+    event.clientX < bounds.left ||
+    event.clientX > bounds.right ||
+    event.clientY < bounds.top ||
+    event.clientY > bounds.bottom;
+
+  if (event.target === menu && outside) {
+    closeMenu();
+  }
+});
+
+menu.addEventListener("close", () => {
+  menuToggle.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("menu-open");
+  menuToggle.focus();
+});
+
+const mobileScreen = window.matchMedia("(max-width: 48rem)");
+
+mobileScreen.addEventListener("change", (event) => {
+  if (!event.matches && menu.open) {
+    closeMenu();
+  }
+});
+</script>
+</body>
+</html>

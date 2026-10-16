@@ -1,0 +1,625 @@
+@use "variables" as v;
+@use "catalog";
+
+// CSS-змінні залишені, щоб вигляд і поведінка сторінки не змінилися
+:root {
+  --color-accent: #{v.$color-accent};
+  --color-accent-hover: #{v.$color-accent-hover};
+  --color-text: #{v.$color-text};
+  --color-background: #{v.$color-background};
+  --color-border: #{v.$color-border};
+  --container-width: #{v.$container-width};
+  --radius-card: #{v.$radius-card};
+  --radius-button: #{v.$radius-button};
+  --section-space: #{v.$section-space};
+}
+
+// ---------- База ----------
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Saira", sans-serif;
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1.125rem);
+  line-height: 1.5;
+  color: v.$color-text;
+  background: v.$color-background;
+
+  &.menu-open {
+    overflow: hidden;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.7778vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+:focus-visible {
+  outline: 0.1875rem solid v.$color-accent;
+  outline-offset: 0.25rem;
+}
+
+.container {
+  width: 100%;
+  max-width: v.$container-width;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+// Нульова специфічність: розміри відступів секцій задаються окремо (.benefits, .catalog ...)
+:where(.section) {
+  padding-block: v.$section-space;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border: 0;
+  border-radius: v.$radius-button;
+  font-weight: 600;
+  color: #fff;
+  background: v.$color-accent;
+  transition: background 0.2s;
+
+  &:hover {
+    background: v.$color-accent-hover;
+  }
+}
+
+// ---------- Шапка та меню ----------
+.site-header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+  color: #fff;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 1.75rem;
+
+  @include v.wide {
+    padding-inline: 3.375rem;
+  }
+}
+
+.logo {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.58;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  font-size: 1rem;
+
+  a:first-child {
+    font-weight: 600;
+  }
+}
+
+.desktop-nav a:hover,
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.mobile-menu {
+  inset: 0 0 0 auto;
+  width: min(85vw, 22rem);
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 2rem;
+  border: 0;
+  color: v.$color-text;
+  background: #fff;
+
+  &::backdrop {
+    background: rgb(0 0 0 / 45%);
+  }
+}
+
+.menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.menu-close {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  background: v.$color-light;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+// ---------- Hero ----------
+.hero {
+  position: relative;
+  min-height: 55rem;
+  padding: 14.063rem 0 12rem;
+  color: #fff;
+  background:
+    linear-gradient(
+      180deg,
+      rgb(0 0 0 / 30%) 0%,
+      rgb(0 0 0 / 18%) 65%,
+      #fff 100%
+    ),
+    url("img/hero.jpg") center / cover no-repeat;
+
+  h1 {
+    max-width: 55.5rem;
+    margin-inline: auto;
+    font-size: clamp(1.5rem, 4.4444vw, 4rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .button {
+    margin-top: 4.06rem;
+    padding: 1rem 5rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+}
+
+.hero-inner {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-copy {
+  flex: 0 1 55.5rem;
+  text-align: center;
+
+  p {
+    max-width: 39.1875rem;
+    margin: 1.88rem auto 0;
+    font-size: clamp(0.875rem, 1.3889vw, 1.25rem);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+}
+
+// ---------- Статистика ----------
+.highlights {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  width: calc(100% - 3rem);
+  max-width: 77.5rem;
+  min-height: 11.25rem;
+  margin: -3.75rem auto 0;
+  padding: 2.5rem 1rem;
+  border-radius: v.$radius-card;
+  color: #fff;
+  background: v.$color-accent;
+
+  p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.63rem;
+    min-height: 6.25rem;
+    padding-inline: 1rem;
+    text-align: center;
+
+    + p {
+      border-left: 1px solid rgb(255 255 255 / 50%);
+    }
+  }
+
+  strong {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  span {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+}
+
+// ---------- Переваги ----------
+.benefits {
+  padding-block: 4.63rem;
+}
+
+.benefits-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(2rem, 6.9444vw, 6.25rem);
+}
+
+.benefits-image {
+  flex: 0 1 44.6774%;
+  width: 44.6774%;
+  aspect-ratio: 554 / 443;
+  object-fit: cover;
+  border-radius: 0.313rem;
+}
+
+.benefits-copy {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.563rem;
+
+  h2 {
+    max-width: 31.75rem;
+  }
+
+  > p {
+    margin-top: 0.875rem;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+}
+
+.benefits-list {
+  margin: 2.1875rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    + li {
+      margin-top: 1.75rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  p {
+    margin-top: 0.563rem;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
+.check-icon {
+  display: flex;
+  flex: 0 0 2rem;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+
+  svg {
+    width: 1.556rem;
+    height: 1.556rem;
+  }
+}
+
+// ---------- Додаткова секція ----------
+.storage-about {
+  padding-block: 6rem;
+}
+
+.storage-about-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 8.0556vw, 7.25rem);
+}
+
+.storage-about-copy {
+  flex: 1;
+  min-width: 0;
+
+  h2 {
+    max-width: 34.875rem;
+  }
+
+  p {
+    max-width: 35.625rem;
+    margin-top: 2.1875rem;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+}
+
+.storage-about-image {
+  flex: 0 1 44.6774%;
+  width: 44.6774%;
+  aspect-ratio: 554 / 399;
+  object-fit: cover;
+  border-radius: 0.313rem;
+}
+
+// ---------- Підвал ----------
+.site-footer {
+  padding: 4rem 0 1.5rem;
+  color: #fff;
+  background: v.$color-accent;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+
+  address {
+    font-style: normal;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+}
+
+.footer-brand p {
+  max-width: 18rem;
+  margin-top: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(255 255 255 / 30%);
+  font-size: 0.875rem;
+}
+
+// ---------- Мобільна версія (до 48rem) ----------
+@include v.mobile {
+  .container {
+    padding-inline: 1.5625rem;
+  }
+
+  .header-inner {
+    padding-block: 1.875rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .hero {
+    min-height: 46.813rem;
+    padding-top: 11.875rem;
+    padding-bottom: 12rem;
+    background-position: right center;
+
+    h1 {
+      max-width: 18.125rem;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .button {
+      margin-top: 1.875rem;
+      padding: 0.563rem 2.188rem;
+      border-radius: 0.313rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .hero-inner {
+    display: block;
+  }
+
+  .hero-copy p {
+    max-width: 18.313rem;
+    margin-top: 1.875rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 0;
+    width: calc(100% - 3.125rem);
+    margin-top: -3.75rem;
+    padding: 1.5rem 0.5rem;
+
+    p {
+      padding-inline: 0.5rem;
+
+      &:nth-child(3) {
+        border-left: 0;
+      }
+    }
+
+    strong {
+      font-size: 2rem;
+    }
+
+    span {
+      font-size: 0.875rem;
+    }
+  }
+
+  .benefits,
+  .storage-about {
+    padding-block: 3.125rem;
+  }
+
+  .benefits-inner,
+  .storage-about-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3.125rem;
+  }
+
+  .benefits-copy {
+    padding-top: 0;
+  }
+
+  .benefits-copy h2,
+  .storage-about-copy h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .benefits-copy > p,
+  .storage-about-copy p {
+    margin-top: 0.9375rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .benefits-list {
+    margin-top: 1.25rem;
+
+    li {
+      gap: 0.9375rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    p {
+      margin-top: 0.625rem;
+      font-size: 0.875rem;
+      line-height: 2;
+    }
+  }
+
+  .check-icon {
+    flex-basis: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.125rem;
+
+    svg {
+      width: 1.1667rem;
+      height: 1.1667rem;
+    }
+  }
+
+  .benefits-image {
+    order: 2;
+    flex: auto;
+    width: 100%;
+    aspect-ratio: 340 / 270;
+  }
+
+  .storage-about-image {
+    flex: auto;
+    width: 100%;
+    aspect-ratio: 340 / 244;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button {
+    transition: none;
+  }
+}
