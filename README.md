@@ -6,8 +6,8 @@
 Сторінка з лабораторної роботи 1. Вигляд не змінився, змінився спосіб збирання: стилі пишуться на Sass, а картки товарів генеруються скриптом Node.js з `data/products.json`.
 
 - Макет: https://www.figma.com/design/NzfgB5QyJalidCqqmMqKNk/Lab-1--Copy-?node-id=0-1
-- Опублікована сторінка: 
-- Репозиторій:   
+- Опублікована сторінка: https://mariiakuhaivska.github.io/lab2/
+- Репозиторій: https://github.com/Mariiakuhaivska/lab2  
 
 ## Версії
 
