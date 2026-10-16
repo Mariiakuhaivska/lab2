@@ -13,7 +13,7 @@
 
 - Node.js: v24.22.0
 - npm: 11.19.1
-- Sass (dart-sass): з `package.json`, ^1.83.4, встановлюється через npm
+- Sass (dart-sass): ^1.105.2 (див. `devDependencies` у `package.json`), встановлюється через `npm install`
 
 ## Запуск з нуля
 
@@ -24,7 +24,7 @@ npm install
 npm run build
 ```
 
-Після цього сторінка відкривається через `index.html`.
+Після цього сторінка відкривається через `index.html`. CSS збирається у читабельному вигляді (`--style=expanded`).
 
 ## Команди
 
@@ -55,7 +55,7 @@ npm run build
 
 ## Як додати товар
 
-Додайте об'єкт у `data/products.json` (поля `title`, `image`, `alt`, `price`, необов'язково `oldPrice`) і виконайте `npm run build:cards`. HTML карток вручну не редагується.
+Додайте об'єкт у `data/products.json` (поля `id`, `title`, `price`, `image`, `description`, `link`, необов'язково `oldPrice`; `description` використовується як alt-текст зображення) і виконайте `npm run build:cards`. HTML карток вручну не редагується.
 
 ## Важливо
 

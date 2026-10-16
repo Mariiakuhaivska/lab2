@@ -8,7 +8,7 @@ const DATA = path.join(root, "data", "products.json");
 const PAGE = path.join(root, "index.html");
 const START = "<!-- cards:start -->";
 const END = "<!-- cards:end -->";
-const REQUIRED = ["title", "image", "alt", "price"];
+const REQUIRED = ["id", "title", "price", "image", "description", "link"];
 
 function fail(message) {
   console.error(`build-cards: ${message}`);
@@ -65,7 +65,7 @@ function renderCard(product) {
     : "";
 
   return `          <article class="product-card">
-            <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.alt)}" loading="lazy">
+            <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.description)}" loading="lazy">
 
             <h3>${title}</h3>
 
@@ -73,7 +73,7 @@ function renderCard(product) {
               ${formatPrice(product.price)}${oldPrice}
             </p>
 
-            <a class="product-link" href="#contacts" aria-label="Ask about ${title}">
+            <a class="product-link" href="${escapeHtml(product.link)}" aria-label="Ask about ${title}">
               Learn More
             </a>
           </article>`;

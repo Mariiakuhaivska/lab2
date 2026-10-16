@@ -6,8 +6,8 @@
   "author": "Кугаївська Марія",
   "license": "ISC",
   "scripts": {
-    "scss:build": "sass src/scss/main.scss css/style.css --style=expanded --no-source-map",
-    "scss:watch": "sass --watch src/scss/main.scss:css/style.css --style=expanded --no-source-map",
+    "scss:build": "sass src/scss/main.scss css/style.css --no-source-map --style=expanded",
+    "scss:watch": "sass --watch src/scss/main.scss:css/style.css",
     "build:cards": "node scripts/build-cards.js",
     "build": "npm run build:cards && npm run scss:build"
   },
